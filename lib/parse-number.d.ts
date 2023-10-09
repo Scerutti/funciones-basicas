@@ -1,1 +1,2 @@
-export declare const parseNumber: (value: any, def?: number) => number;
+declare const parseNumber: (value: any, def?: number) => number;
+export default parseNumber;

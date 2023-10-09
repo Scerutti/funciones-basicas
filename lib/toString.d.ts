@@ -1,1 +1,1 @@
-export declare function toString(value: any, defaultValue?: string): string;
+export default function toString(value: any, defaultValue?: string): string;

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toString  from "./toString";
 
 /**
  * Hook personalizado para gestionar valores en el almacenamiento local (localStorage) de manera segura.
@@ -7,7 +8,7 @@ import { useState } from "react";
  * @param {T} initialValue - Valor inicial que se utilizará si no se encuentra ningún valor en localStorage.
  * @returns {[T, (value: T) => void]} - Un array con dos elementos: el valor actual y una función para actualizar el valor.
  */
-export function useLocalStorage<T>(key: string, initialValue: T):readonly [T, (value: T) => void] {
+export default function useLocalStorage<T>(key: string, initialValue: T):readonly [T, (value: T) => void] {
   /**
    * Estado local para el valor almacenado en localStorage.
    * @type {T}
@@ -32,7 +33,7 @@ export function useLocalStorage<T>(key: string, initialValue: T):readonly [T, (v
 
       window.localStorage.setItem(key, JSON.stringify(newValue));
     } catch (error) {
-      console.error(error);
+      throw new Error(toString(error))
     }
   };
 
