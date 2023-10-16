@@ -95,7 +95,7 @@ Hook personalizado para gestionar valores en el almacenamiento local (localStora
 - `key` (string): Clave para identificar el valor en localStorage.
 - `initialValue`(T): Valor inicial que se utilizará si no se encuentra ningún valor en localStorage.
 
-## Retorno
+### Retorno
 - `[T, (value: T) => void]`: Un array con dos elementos: el valor actual y una función para actualizar el valor.
 
 ### Ejemplo de uso:
@@ -112,4 +112,181 @@ function MyComponent() {
   // Para actualizar el valor almacenado
   setStoredValue('nuevoValor');
 }
+```
+## Funcion `toArray`
+
+Crea un vector (Array) del tipo de dato especificado.
+
+### Parámetros
+- `array`(T[] | void): Vector (Array).
+
+### Retorno
+- `T[]`: Vector (Array) del tipo especificado.
+
+### Ejemplo de uso:
+```javascript
+const array = toArray([1, 2, 3]);
+console.log(array); // Resultado: [1, 2, 3]
+
+const emptyArray = toArray();
+console.log(emptyArray); // Resultado: []
+```
+
+## Funcion `replaceAll`
+
+Dada una cadena, reemplaza en dicha cadena el valor de `oldValue` por el valor de `newValue`.
+
+### Parámetros
+- `value` (string | null | undefined): Cadena de caracteres.
+- `oldValue` (string): Valor antiguo a ser reemplazado por uno nuevo.
+- `newValue` (string): Valor nuevo que tomará el lugar del valor antiguo.
+
+### Retorno
+- `string`: Cadena de caracteres con ocurrencias reemplazadas.
+
+### Ejemplo de uso:
+```javascript
+const originalString = "Hoy es un día soleado y hoy es genial.";
+const replacedString = replaceAll(originalString, "hoy", "mañana");
+console.log(replacedString);
+// Resultado: "Mañana es un día soleado y mañana es genial."
+```
+
+## Funcion `dateToStr`
+
+Dada una cadena de fecha con formato ISO 8601, elimina de dicha cadena las apariciones de "T" y "Z".
+
+### Parámetros
+- `date` (string): Cadena con formato de fecha.
+
+### Retorno
+- `string`: Cadena con formato fecha YYYY-MM-DD HH:mm:ss.
+
+### Ejemplo de uso:
+```javascript
+const isoDate = "2023-10-16T08:30:00Z";
+const formattedDate = dateToStr(isoDate);
+console.log(formattedDate); // Resultado: "2023-10-16 08:30:00"
+```
+
+## Funcion `formatContructorDate`
+
+Dada una fecha en formato ISO 8601, transforma la fecha de formato ISO 8601 a "DD-MM-YYYY HH:MM:sss". El formato de salida dependerá de los parámetros que reciba la función.
+
+### Parámetros
+- `fecha` (Date | null | undefined): Fecha de tipo Date con formato ISO 8601.
+- `includeTime` (boolean, opcional, por defecto true): True si el formato de salida incluye tiempo "HH:MM", False si no incluye "HH:MM".
+- `format` ("-" | "/", opcional, por defecto "/"): Carácter divisor de fecha, puede ser "DD-MM-YYYY HH:MM" o "DD/MM/YYYY HH:MM".
+- `days` (number, opcional, por defecto 0): Cantidad de días que serán sumados o restados a los días de la fecha.
+- `includeSeconds` (boolean, opcional, por defecto false): True si el formato de salida incluye tiempo ":sss", False si no incluye ":sss".
+
+### Retorno
+- `string`: Cadena de fecha con formato "DD-MM-YYYY HH:MM:sss" en su forma extendida, "DD-MM-YYYY" en su forma reducida.
+
+### Ejemplo de uso:
+```javascript
+const isoDate = "2023-10-16T08:30:00Z";
+const formattedDate = formatContructorDate(new Date(isoDate));
+console.log(formattedDate); // Resultado: "16-10-2023 08:30:00"
+```
+
+## Funcion `formatDate`
+
+Dada una fecha en formato ISO 8601, transforma la fecha de formato ISO 8601 a "DD-MM-YYYY HH:MM:sss". El formato de salida dependerá de los parámetros que reciba la función.
+
+### Parámetros
+- `isoDate` (string, opcional): Cadena de fecha con formato ISO 8601.
+- `includeTime` (boolean, opcional, por defecto true): True si el formato de salida incluye tiempo "HH:MM", False si no incluye "HH:MM".
+- `format` ("-" | "/", opcional, por defecto "/"): Carácter divisor de fecha, puede ser "DD-MM-YYYY HH:MM" o "DD/MM/YYYY HH:MM".
+- `days` (number, opcional, por defecto 0): Cantidad de días que serán sumados o restados a los días de la fecha.
+- `includeSeconds` (boolean, opcional, por defecto false): True si el formato de salida incluye tiempo ":sss", False si no incluye ":sss".
+
+### Retorno
+- `string`: Cadena de fecha con formato "DD-MM-YYYY HH:MM:sss" en su forma extendida, "DD-MM-YYYY" en su forma reducida.
+
+### Ejemplo de uso:
+```javascript
+const isoDate = "2023-10-16T08:30:00Z";
+const formattedDate = formatDate(isoDate);
+console.log(formattedDate); // Resultado: "16-10-2023 08:30:00"
+```
+
+## Funcion `formatDateToIso`
+
+Dada una fecha en la transforma a formato ISO 8601.
+
+### Parámetros
+- `Date` (string): Cadena de fecha.
+
+### Retorno
+- `string`: Fecha en formato ISO 8601.
+
+### Ejemplo de uso:
+```javascript
+const date = "16-10-2023 08:30";
+const isoDate = formatDateToIso(date);
+console.log(isoDate); // Resultado: "2023-10-16T08:30"
+```
+
+## Funcion `formatTime`
+
+Dada una cadena en formato ISO 8601, formatea los datos de tiempo HH:MM con 0 a la izquierda.
+
+### Parámetros
+- `isoDate` (string, opcional): Cadena de fecha en formato ISO 8601.
+
+### Retorno
+- `string`: Cadena de fecha en formato ISO 8601 con HH:MM formateados.
+
+### Ejemplo de uso:
+```javascript
+const isoDate = "2023-10-16T08:03:00Z";
+const formattedTime = formatTime(isoDate);
+console.log(formattedTime); // Resultado: "08:03"
+```
+
+## Funcion `diffDate`
+
+Dado un valor cualquiera, analiza y determina su tipo de dato.
+
+### Parámetros
+- `valueFrom` (string): Cadena de fecha inicial.
+- `valueTo` (string | null | undefined): Cadena de fecha final.
+- `type` ("min" | "sec" | "hour" | "day"): Tipo de diferencia (resto) que se quiere calcular.
+- `includeNegatives` (boolean): True si se quiere incluir valores negativos, False caso contrario.
+
+### Retorno
+- `number`: Número de diferencia (resto) de fechas según el tipo especificado.
+
+### Ejemplo de uso:
+```javascript
+const startDate = "2023-10-15T08:00:00Z";
+const endDate = "2023-10-16T08:30:00Z";
+const differenceInHours = diffDate(startDate, endDate, "hour", true);
+console.log(differenceInHours); // Resultado: 24
+```
+
+## Funcion `typeOf`
+
+Dado un valor cualquiera, analiza y determina su tipo de dato.
+
+### Parámetros
+- `value` (any): Valor.
+
+### Retorno
+- "" | "array" | "string" | "number" | "object" | "boolean": Tipo de dato del valor.
+
+### Ejemplo de uso:
+```javascript
+const value1 = 42;
+const type1 = typeOf(value1);
+console.log(type1); // Resultado: "number"
+
+const value2 = "Hola, mundo";
+const type2 = typeOf(value2);
+console.log(type2); // Resultado: "string"
+
+const value3 = [1, 2, 3];
+const type3 = typeOf(value3);
+console.log(type3); // Resultado: "array"
 ```
