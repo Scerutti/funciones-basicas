@@ -290,3 +290,29 @@ const value3 = [1, 2, 3];
 const type3 = typeOf(value3);
 console.log(type3); // Resultado: "array"
 ```
+## Función `toBoolean`
+
+Si el valor pasado por parametros es de tipo boolean, devuelve ese valor. Caso contrario devolverá el default ( si se existiese ) o false en su defecto.
+
+### Parámetros
+- `value` (any): El valor que se desea convertir a un booleano.
+- `def` (boolean | undefined) (Opcional): El valor predeterminado que se retornará si `value` no es un booleano.
+
+### Retorno
+- `boolean`: Un valor booleano igual a `value` si `value` es un booleano, o el valor predeterminado si se proporciona; de lo contrario, `false`.
+
+### Ejemplo de uso:
+```javascript
+const value1 = true;
+const booleanValue1 = toBoolean(value1);
+console.log(booleanValue1); // Resultado: true
+
+const value2 = "No es un booleano";
+const defaultValue2 = false;
+const booleanValue2 = toBoolean(value2, defaultValue2);
+console.log(booleanValue2); // Resultado: false (debido al valor predeterminado)
+
+const value3 = null;
+const booleanValue3 = toBoolean(value3);
+console.log(booleanValue3); // Resultado: false (debido a la conversión predeterminada a false)
+```

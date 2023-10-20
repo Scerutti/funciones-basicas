@@ -229,3 +229,17 @@ export const typeOf = (
   }
   return "";
 };
+
+
+/**
+ * Si el valor (value) es de tipo booleano, lo devuelve, sino devuelve un default (def) o false en su defecto.
+ *
+ * @param {any} value - El valor que se desea convertir a un booleano.
+ * @param {boolean | undefined} def - (Opcional) El valor predeterminado que se retornará si `value` no es un booleano.
+ * @returns {boolean} Un valor booleano igual a `value` si `value` es un booleano, o el valor predeterminado si se proporciona; de lo contrario, `false`.
+ */
+
+export const toBoolean = (value?: any, def?: boolean): boolean => {
+  if (typeof value === "boolean") return value;
+  return def || false;
+}
