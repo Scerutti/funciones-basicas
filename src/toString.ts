@@ -6,7 +6,7 @@
  * @returns {string} Una cadena de texto si `value` es una cadena, o el valor predeterminado si se proporciona, de lo contrario, una cadena vacía.
  */
 
-export default function toString(value: any, defaultValue?: string): string {
+export function toString(value: any, defaultValue?: string): string {
   if (value) {
     if (typeof value === 'object' && Object.keys(value).length === 0) {
       if (defaultValue !== undefined && typeof defaultValue === 'string') {

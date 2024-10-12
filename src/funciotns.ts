@@ -1,4 +1,5 @@
-import parseNumber from "./parse-number";
+import { parseNumber } from "./parse-number";
+
 
 /**
  * Dada una cadena, reemplaza en dicha cadena el valor de {@link oldValue} por el valor de {@link newValue}.

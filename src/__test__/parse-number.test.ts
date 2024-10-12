@@ -1,4 +1,5 @@
-import parseNumber from "../parse-number";
+import { parseNumber } from "../parse-number";
+
 
 describe("parseNumber function", () => {
   it("should convert a valid number", () => {

@@ -5,7 +5,7 @@
  * @returns {number} - El valor convertido a número o el valor predeterminado en caso de error.
  */
 
-const parseNumber = (value: any, def?: number): number => {
+export const parseNumber = (value: any, def?: number): number => {
     const parsedValue = Number(value);
     if (isNaN(parsedValue)) {
         return def !== undefined ? def : 0;
@@ -13,5 +13,3 @@ const parseNumber = (value: any, def?: number): number => {
         return parsedValue;
     }
 };
-
-export default parseNumber;

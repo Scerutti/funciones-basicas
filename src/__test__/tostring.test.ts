@@ -1,4 +1,5 @@
-import toString from "../toString";
+import { toString } from "../toString";
+
 
 describe("toString function", () => {
   it("should convert a value to a string", () => {

@@ -6,7 +6,7 @@ import { WindowSize } from "./interface";
  * @returns {WindowSize | undefined} - El objeto que contiene el ancho (width) y alto (height) de la ventana o undefined si el hook no se ha inicializado todavía.
  */
 
-export default function useWindowSize(): WindowSize | undefined {
+export function useWindowSize(): WindowSize | undefined {
   /**
    * El estado que almacena el tamaño de la ventana.
    * @type {React.State<WindowSize | undefined>}
