@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "declaration": true,
     "outDir": "./lib",
@@ -15,11 +15,5 @@
     "esModuleInterop": true
   },
   "include": ["src"],
-  "exclude": [
-    "node_modules", 
-    "**/__tests__/*",
-    "public",
-    "**/index.tsx",
-    ".env"
-  ]
+  "exclude": ["node_modules", "**/__tests__/*", "public", "**/index.tsx", ".env"]
 }
