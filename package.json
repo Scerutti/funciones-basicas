@@ -1,10 +1,11 @@
 {
   "name": "funciones-basicas",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "description": "Funciones Basicas para proyectos simples",
   "main": "lib/core.js",
   "types": "lib/core.d.ts",
   "module": "lib/core.js",
+  "type": "module",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "test": "jest",
