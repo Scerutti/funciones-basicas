@@ -1,2 +1,2 @@
 import { WindowSize } from "./interface";
-export default function useWindowSize(): WindowSize | undefined;
+export declare function useWindowSize(): WindowSize | undefined;
